@@ -23,6 +23,7 @@ import { CardWrapper } from "@/components/auth/card-wrapper";
 import { FormError } from "@/components/form-error";
 import { FormSuccess } from "@/components/form-success";
 import { login } from "@/actions/login";
+import Link from "next/link";
 
 export const LoginForm = () => {
     const SearchParams = useSearchParams();
@@ -95,6 +96,11 @@ export const LoginForm = () => {
                       type="password"
                     />
                   </FormControl>
+                  <Button size="sm" variant="link" className="px-0 font-normal" asChild>
+                    <Link href="/auth/rest">
+                    Forgot password?
+                    </Link>
+                  </Button>
                   <FormMessage />
                 </FormItem>
               )}
