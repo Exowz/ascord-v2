@@ -1,9 +1,6 @@
 "use client";
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Header } from "@/components/auth/header";
-import { Social } from "@/components/auth/social";
 import { LoginForm } from "@/components/auth/login-form";
 import { RegisterForm } from "@/components/auth/register-form";
 

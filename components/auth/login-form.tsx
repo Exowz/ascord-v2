@@ -31,6 +31,7 @@ export const LoginForm = () => {
      ? "Email already in use with different provider!"
      : "";
 
+  const [showTwoFactor, setShowTwoFactor] = useState(false);
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
@@ -50,9 +51,21 @@ export const LoginForm = () => {
     startTransition(() => {
         login(values)
             .then((data) => {
-                setError(data?.error);
-                setSuccess(data?.success);
+                if (data?.error) {
+                  form.reset();
+                  setError(data.error);
+                }
+
+                if (data?.success) {
+                  form.reset();
+                  setSuccess(data.success);
+                } 
+
+                if (data?.twoFactor) {
+                  setShowTwoFactor(true);
+                }
             })
+                .catch(() => setError("Something went wrong"));
     });
   }
 
@@ -64,6 +77,27 @@ export const LoginForm = () => {
           className="space-y-6"
         >
           <div className="space-y-4">
+           {showTwoFactor && (
+            <FormField
+            control={form.control}
+            name="code"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Two Factor Code</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    disabled={isPending}
+                    placeholder="123456"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+           )} 
+            {!showTwoFactor && (
+              <>
             <FormField
               control={form.control}
               name="email"
@@ -97,7 +131,7 @@ export const LoginForm = () => {
                     />
                   </FormControl>
                   <Button size="sm" variant="link" className="px-0 font-normal" asChild>
-                    <Link href="/auth/rest">
+                    <Link href="/auth/reset">
                     Forgot password?
                     </Link>
                   </Button>
@@ -105,6 +139,8 @@ export const LoginForm = () => {
                 </FormItem>
               )}
             />
+            </>
+              )}  
           </div>
           <FormError message={error || urlError }/>
           <FormSuccess message={success}/>
@@ -115,7 +151,7 @@ export const LoginForm = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg" />
             <div className="px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent text-center">
-              Login
+              {showTwoFactor ? "Confirm" : "Login"}
             </div>
           </button>
         </form>
