@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { cn } from "@/lib/utils";
+import { SessionProvider } from "next-auth/react";
+import { auth } from "@/auth";
 
 
 const geistSans = localFont({
@@ -21,12 +23,14 @@ export const metadata: Metadata = {
   description: "Task Manager",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
   return (
+    <SessionProvider session={session}>
       <html lang="en" suppressHydrationWarning>
         <body
           className={cn(
@@ -44,5 +48,6 @@ export default function RootLayout({
           </ThemeProvider>
         </body>
       </html>
+    </SessionProvider>
   );
 }

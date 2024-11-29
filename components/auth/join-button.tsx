@@ -3,6 +3,13 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { 
+  Dialog,
+  DialogContent,
+  DialogTrigger
+ } from "@/components/ui/dialog";
+import { AuthTabs } from "./auth-tabs";
+
 interface JoinButtonProps {
   children: React.ReactNode;
   mode?: "modal" | "redirect";
@@ -18,9 +25,14 @@ export const JoinButton = ({ children, mode = "redirect", asChild = false }: Joi
 
   if (mode === "modal") { 
     return (
-        <span>
-            TODO: Implement modal
-        </span>
+      <Dialog>
+        <DialogTrigger asChild={asChild}>
+          {children}
+        </DialogTrigger>
+        <DialogContent className="p-10 w-auto bg-transparent border-none">
+          <AuthTabs />
+        </DialogContent>
+      </Dialog>
     )
   }
 

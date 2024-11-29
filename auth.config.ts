@@ -19,7 +19,8 @@ export default {
           email: profile.email,
           firstName: firstName || "", // Assign the first part as firstName
           lastName: lastNameParts.join(" ") || "", // Join remaining parts as lastName
-          image: profile.picture,
+          image: profile.picture || null,
+          isTwoFactorEnabled: profile.isTwoFactorEnabled as boolean, // Include isTwoFactorEnabled if present
         };
       },
     }),
@@ -33,28 +34,38 @@ export default {
           email: profile.email,
           firstName: firstName || "",
           lastName: lastNameParts.join(" ") || "",
-          image: profile.avatar_url,
+          image: profile.avatar_url || null,
+          isTwoFactorEnabled: profile.isTwoFactorEnabled as boolean, // Include isTwoFactorEnabled if present
         };
       },
     }),
     Credentials({
-      async authorize(credentials) {
+      // Ensure proper typing for `authorize`
+      authorize: async (credentials) => {
         if (!credentials) return null;
 
         const validatedFields = LoginSchema.safeParse(credentials);
 
-        if (validatedFields.success) {
-          const { email, password } = validatedFields.data;
+        if (!validatedFields.success) return null;
 
-          const user = await getUserByEmail(email);
-          if (!user || !user.password) return null;
+        const { email, password } = validatedFields.data;
 
-          const passwordsMatch = await bcrypt.compare(password, user.password);
+        const user = await getUserByEmail(email);
+        if (!user || !user.password) return null;
 
-          if (passwordsMatch) return user;
-        }
+        const passwordsMatch = await bcrypt.compare(password, user.password);
 
-        return null;
+        if (!passwordsMatch) return null;
+
+        return {
+          id: user.id,
+          email: user.email,
+          firstName: user.firstName || "", // Include firstName if present
+          lastName: user.lastName || "", // Include lastName if present
+          role: user.role || "USER", // Default to "USER" if not present
+          image: user.image || null, // Include image if present
+          isTwoFactorEnabled: user.isTwoFactorEnabled as boolean, // Include isTwoFactorEnabled if present
+        };
       },
     }),
   ],

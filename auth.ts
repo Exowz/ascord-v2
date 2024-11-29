@@ -47,11 +47,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             // Attach additional user fields to the session
             if (token) {
               session.user = {
-                id: token.sub || null,
-                email: token.email || null,
+                id: token.sub ?? "",
+                email: token.email ?? "",
                 firstName: token.firstName || "",
                 lastName: token.lastName || "",
-                role: token.role || null,
+                role: (token.role as UserRole) ?? "USER",
+                image: typeof token.image === "string" ? token.image : undefined,
+                isTwoFactorEnabled: token.isTwoFactorEnabled as boolean,
               };
             }
       
@@ -68,7 +70,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               if (user) {
                 token.firstName = user.firstName || null;
                 token.lastName = user.lastName || null;
-                token.role = user.role || null;
+                token.role = user.role || "USER";
+                token.image = typeof user.image === "string" ? user.image : undefined;
+                token.email = user.email;
+                token.isTwoFactorEnabled = user.isTwoFactorEnabled;
               }
             }
       
