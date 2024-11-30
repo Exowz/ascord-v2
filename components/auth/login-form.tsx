@@ -145,15 +145,18 @@ export const LoginForm = () => {
           <FormError message={error || urlError }/>
           <FormSuccess message={success}/>
           <button
-            type="submit"
-            disabled={isPending}
-            className="p-[3px] relative w-full"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg" />
-            <div className="px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent text-center">
-              {showTwoFactor ? "Confirm" : "Login"}
-            </div>
-          </button>
+  type="submit"
+  disabled={isPending}
+  className="p-[3px] relative w-full"
+>
+  {/* Gradient Background */}
+  <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-500 dark:from-blue-500 dark:to-blue-700 rounded-lg" />
+  
+  {/* Inner Button */}
+  <div className="px-8 py-2 bg-white dark:bg-black rounded-[6px] relative group transition duration-200 text-black dark:text-white hover:bg-transparent dark:hover:bg-transparent text-center">
+    {showTwoFactor ? "Confirm" : "Login"}
+  </div>
+</button>
         </form>
       </Form>
     </CardWrapper>

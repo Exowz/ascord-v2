@@ -34,6 +34,12 @@ import { LogoutButton } from "@/components/auth/logout-button";
             <DropdownMenuContent className="w-40" align="end">
                 <LogoutButton>
                     <DropdownMenuItem>
+                        Settings
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                        Status
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
                         Logout
                     </DropdownMenuItem>
                 </LogoutButton>
