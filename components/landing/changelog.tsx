@@ -142,7 +142,7 @@ export default function Changelog() {
         },
       ];
   return (
-    <section>
+    <section id="changelog">
           <div className="w-full py-24">
       <Timeline data={data} />
     </div>

@@ -12,9 +12,9 @@ export default function Footer() {
                 <div className="font-medium">Ascord</div>
             </div>
                 <nav className="flex flex-col lg:flex-row gap-5 lg:gap-7 lg:flex-1 lg:justify-center">
-                    <a className="text-slate-600 dark:text-white/70 hover:text-black dark:hover:text-white text-xs md:text-sm transition" href="#">Features</a>
-                    <a className="text-slate-600 dark:text-white/70 hover:text-black dark:hover:text-white text-xs md:text-sm transition" href="#">Testimonials</a>
-                    <a className="text-slate-600 dark:text-white/70 hover:text-black dark:hover:text-white text-xs md:text-sm transition" href="#">Changelog</a>
+                    <a className="text-slate-600 dark:text-white/70 hover:text-black dark:hover:text-white text-xs md:text-sm transition" href="#features">Features</a>
+                    <a className="text-slate-600 dark:text-white/70 hover:text-black dark:hover:text-white text-xs md:text-sm transition" href="#testimonials">Testimonials</a>
+                    <a className="text-slate-600 dark:text-white/70 hover:text-black dark:hover:text-white text-xs md:text-sm transition" href="#changelog">Changelog</a>
                 </nav>
             <div className="flex gap-5 lg:flex-1 lg:justify-end">
             <ModeToggle />
