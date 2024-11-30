@@ -69,7 +69,9 @@ export const TextRevealCard = ({
       onTouchMove={touchMoveHandler}
       ref={cardRef}
       className={cn(
-        "bg-[#1d1c20] border border-white/[0.08] max-w-full md:w-[40rem] rounded-lg p-8 relative overflow-hidden",
+        "border max-w-full md:w-[40rem] rounded-lg p-8 relative overflow-hidden transition-colors duration-300",
+        "bg-white dark:bg-[#1d1c20]", // Light mode: white, dark mode: dark gray
+        "border-slate-300 dark:border-white/[0.08]", // Borders for both modes
         className
       )}
     >
@@ -92,13 +94,13 @@ export const TextRevealCard = ({
                 }
           }
           transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
-          className="absolute bg-[#1d1c20] z-20 will-change-transform"
+          className="absolute z-20 will-change-transform"
         >
           <p
             style={{
               textShadow: "4px 4px 15px rgba(0,0,0,0.5)",
             }}
-            className="text-sm sm:text-lg md:text-[2rem] py-10 font-bold text-white bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-300"
+            className="text-sm sm:text-lg md:text-[2rem] py-10 font-bold bg-clip-text text-transparent bg-gradient-to-b from-black to-slate-600 dark:from-white dark:to-neutral-300"
           >
             {revealText}
           </p>
@@ -116,44 +118,26 @@ export const TextRevealCard = ({
         ></motion.div>
 
         {/* Static Text */}
-        <div className="overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]">
-          <p className="text-sm sm:text-lg md:text-[2rem] py-10 font-bold bg-clip-text text-transparent bg-[#323238]">
+        <motion.div
+          animate={{
+            opacity: isMouseOver ? 0 : 1, // Hide static text on hover
+          }}
+          transition={{
+            duration: 0.4,
+          }}
+          className="overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,white,transparent)]"
+        >
+          <p className="text-sm sm:text-lg md:text-[2rem] py-10 font-bold bg-clip-text text-transparent bg-gradient-to-t from-gray-800 to-gray-400 dark:from-neutral-400 dark:to-neutral-600">
             {text}
           </p>
           <MemoizedStars />
-        </div>
+        </motion.div>
       </div>
     </div>
   );
 };
 
-export const TextRevealCardTitle = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
-  return (
-    <h2 className={twMerge("text-white text-lg mb-2", className)}>
-      {children}
-    </h2>
-  );
-};
-
-export const TextRevealCardDescription = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
-  return (
-    <p className={twMerge("text-[#a9a9a9] text-sm", className)}>{children}</p>
-  );
-};
-
-const Stars = () => {
+export const MemoizedStars = memo(function Stars() {
   const randomMove = () => Math.random() * 4 - 2;
   const randomOpacity = () => Math.random();
   const random = () => Math.random();
@@ -188,6 +172,4 @@ const Stars = () => {
       ))}
     </div>
   );
-};
-
-export const MemoizedStars = memo(Stars);
+});
