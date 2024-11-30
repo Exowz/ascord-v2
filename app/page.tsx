@@ -13,12 +13,14 @@ import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
 import CallToAction from "@/components/landing/calltoaction";
 import Changelog from "@/components/landing/changelog";
+import WhyAscord from "@/components/landing/why-ascord";
 
 export default function Home() {
   return (
     <>
       <Header />
       <Hero />
+      <WhyAscord />
       <Features />
       <Testimonials />
       <Changelog />
