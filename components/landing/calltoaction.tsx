@@ -1,8 +1,8 @@
 "use client";
 
 import React from 'react'
-import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
-import { JoinButton } from '../auth/join-button';
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { JoinButton } from '@/components/auth/join-button';
 
 export default function CallToAction() {
     const words = [

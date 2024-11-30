@@ -1,8 +1,7 @@
 import React from "react";
-import AscordDarkMode from "@/components/ui/logo-darkmode";
 import AscordLightMode from "@/components/ui/logo-lightmode";
-import { JoinButton } from "../auth/join-button";
-import { ModeToggle } from "../mode-toogle";
+import { JoinButton } from "@/components/auth/join-button";
+import { ModeToggle } from "@/components/mode-toogle";
 
 export default function Header() {
 

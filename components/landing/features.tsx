@@ -1,14 +1,11 @@
 import React from 'react'
-import { cn } from "@/lib/utils";
-import { BentoGrid, BentoGridItem } from "../ui/bento-grid";
+import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import {
   IconClipboardCopy,
   IconFileBroken,
   IconSignature,
   IconTableColumn,
 } from "@tabler/icons-react";
-import { ShootingStars } from '../ui/shooting-stars';
-import { StarsBackground } from '../ui/stars-background';
 
 export default function Features() {
   return (

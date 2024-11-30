@@ -1,5 +1,5 @@
 import React from "react";
-import { Timeline } from "../ui/timeline";
+import { Timeline } from "@/components/ui/timeline";
 import Image from "next/image";
 
 export default function Changelog() {

@@ -2,7 +2,7 @@
 import React from "react";
 import {
   TextRevealCard,
-} from "../ui/text-reveal-card";
+} from "@/components/ui/text-reveal-card";
 
 export default function WhyAscord() {
   return (

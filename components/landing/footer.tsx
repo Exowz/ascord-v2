@@ -1,10 +1,6 @@
 import React from 'react'
-import AscordLightMode from '../ui/logo-lightmode'
-import appleLogo from "@/app/assets/logo-apple.png"
-import eceLogo from "@/app/assets/logo-ece.png"
-import googleLogo from "@/app/assets/logo-google.png"
-import githubLogo from "@/app/assets/logo-github.png"
-import { ModeToggle } from '../mode-toogle'
+import AscordLightMode from '@/components/ui/logo-lightmode'
+import { ModeToggle } from '@/components/mode-toogle'
 
 export default function Footer() {
   return (
