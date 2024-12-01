@@ -10,43 +10,43 @@ export const products = [
     title: "VSCode",
     link: "https://code.visualstudio.com",
     thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/moonbeam.png",
+      "https://raw.githubusercontent.com/Exowz/ascord-v2/refs/heads/main/app/assets/hero-thumbnails/VSCode%402x.png",
   },
   {
-    title: "Cursor",
-    link: "https://cursor.so",
+    title: "ChatGPT",
+    link: "https://chat.openai.com",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/cursor.png",
   },
   {
-    title: "Rogue",
-    link: "https://userogue.com",
+    title: "Supabase",
+    link: "https://supabase.com",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/rogue.png",
   },
 
   {
-    title: "Editorially",
-    link: "https://editorially.org",
+    title: "Auth.js",
+    link: "https://authjs.dev",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/editorially.png",
   },
   {
-    title: "Editrix AI",
-    link: "https://editrix.ai",
+    title: "Socket.IO",
+    link: "https://socket.io",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/editrix.png",
   },
   {
-    title: "Pixel Perfect",
-    link: "https://app.pixelperfect.quest",
+    title: "Resend",
+    link: "https://resend.com",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/pixelperfect.png",
   },
 
   {
-    title: "Algochurn",
-    link: "https://algochurn.com",
+    title: "Warp",
+    link: "https://warp.dev",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/algochurn.png",
   },
@@ -63,39 +63,39 @@ export const products = [
       "https://aceternity.com/images/products/thumbnails/new/tailwindmasterkit.png",
   },
   {
-    title: "SmartBridge",
-    link: "https://smartbridgetech.com",
+    title: "Framer Motion",
+    link: "https://framer.com/motion",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/smartbridge.png",
   },
   {
-    title: "Renderwork Studio",
-    link: "https://renderwork.studio",
+    title: "Shadcn UI",
+    link: "https://ui.shadcn.com/",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/renderwork.png",
   },
 
   {
-    title: "Creme Digital",
-    link: "https://cremedigital.com",
+    title: "Vercel",
+    link: "https://vercel.com",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/cremedigital.png",
   },
   {
-    title: "Golden Bells Academy",
-    link: "https://goldenbellsacademy.com",
+    title: "Next.js",
+    link: "https://nextjs.org",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/goldenbellsacademy.png",
   },
   {
-    title: "Invoker Labs",
-    link: "https://invoker.lol",
+    title: "Prisma",
+    link: "https://prisma.io",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/invoker.png",
   },
   {
-    title: "E Free Invoice",
-    link: "https://efreeinvoice.com",
+    title: "Uploadthing",
+    link: "https://uploadthing.com",
     thumbnail:
       "https://aceternity.com/images/products/thumbnails/new/efreeinvoice.png",
   },

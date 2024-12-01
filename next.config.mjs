@@ -45,10 +45,16 @@ const nextConfig = {
             pathname: "/**",
         },
        {
-        protocol: "https",
-        hostname: "assets.aceternity.com",
-        port: "",
-        pathname: "/**",
+            protocol: "https",
+            hostname: "assets.aceternity.com",
+            port: "",
+            pathname: "/**",
+       },
+       {
+            protocol: "https",
+            hostname: "raw.githubusercontent.com",
+            port: "",
+            pathname: "/**",
        } 
       ],
     },
